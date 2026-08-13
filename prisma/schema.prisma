@@ -12,9 +12,19 @@ datasource db {
   provider = "postgresql"
 }
 
+model TodoTask {
+  id         Int      @id @default(autoincrement())
+  name       String
+  categoryId Int
+  category   Category @relation(fields: [categoryId], references: [id])
+
+  @@map("todo_tasks")
+}
+
 model Category {
-  id    Int    @id @default(autoincrement())
-  name  String @unique
-  // this is the table name you will see in postgres
+  id    Int        @id @default(autoincrement())
+  name  String     @unique
+  todos TodoTask[]
+
   @@map("categories")
 }
