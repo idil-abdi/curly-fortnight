@@ -1,11 +1,10 @@
 {
-  "name": "curly-fortnight",
+  "name": "todo-project",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch src --exec tsx src/server.js"
+    "dev": "nodemon --watch src --exec tsx src/server.ts"
   },
   "type": "module",
   "keywords": [],
