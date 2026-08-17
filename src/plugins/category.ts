@@ -1,5 +1,4 @@
 import { Server } from '@hapi/hapi';
-import { createCategoryHandler } from '../category/handler';
 import { categoryRoutes } from '../category/routes';
 import { createCategoryService } from '../category/service';
 

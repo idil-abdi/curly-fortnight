@@ -2,8 +2,8 @@
 // import { CreateCategoryPayload } from './types';
 
 import { ConflictException } from "../exception/ConflictException";
-import { PrismaClient } from "../generated/prisma/client";
-import { CreateCategoryPayload } from "./types";
+import { Category, PrismaClient } from "../generated/prisma/client";
+import { CreateCategoryPayload, GetByIdCategoryPayload } from "./types";
 
 export const createCategoryService = (prisma: PrismaClient) => ({
     async create(data: CreateCategoryPayload) {
@@ -21,6 +21,16 @@ export const createCategoryService = (prisma: PrismaClient) => ({
             data: { ...data, name: cleanedName },
         });
     },
+
+    async get() {
+        return prisma.category.findMany()
+    },
+
+    async getById(data: GetByIdCategoryPayload) {
+        return prisma.category.findUnique({
+            where: {id: data.id}
+        })
+    }
 });
 
 export type CategoryService = ReturnType<typeof createCategoryService>
