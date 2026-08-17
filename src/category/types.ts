@@ -2,6 +2,6 @@ export type CreateCategoryPayload = {
     name: string;
 };
 
-export type GetByIdCategoryPayload = {
-    id: number;
-};
+export type UpdateCategoryPayload = {
+    name?: string
+}
